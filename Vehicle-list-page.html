@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle list page</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="main">
+        <div class="header">
+            <p>Toll Management Application</p>
+            <hr>
+        </div>
+        <div class="content">
+            <div id="left">
+                <p>Toll entries/Vehicle entries</p>
+                <p>|</p>
+                <i class="fa fa-filter" id="filter" onclick="showDropdown()"></i>
+                <div class="filter-dropdown-content" id="filter-option-dropdown">
+                    <a href="#">All</a>
+                    <a href="#">Kappalur</a>
+                    <a href="#">Chengalpattu</a>
+                    <a href="#">Krishnagiri</a>
+                </div>
+                <div class="search-bar">
+                    <i class="fa fa-search" style="font-size: 18px;"></i>
+                    <input type="search" name="search" placeholder="Search vehicle" id="search-button">
+                </div>
+            </div>
+            
+            <div id="right">
+                <input type="button" name="add-vehivle-entry" id="add-vehivle-entry" value="Add vehicle entry" onclick="openAddEntryPopUp()">
+                <input type="button" name="add-new-toll" id="add-new-toll" value="Add new toll" onclick="openAddTollPopUp()">
+                <a href="./Toll-list-page.html"><input type="button" name="view-tolls" id="view-tolls" value="View all tolls"></a>
+            </div>
+        </div>
+        
+        <div class="vehicle-list">
+            <table>
+                <tr>
+                    <td id="header">VEHICLE TYPE</td>
+                    <td id="header">VEHICLE NUMBER</td>
+                    <td id="header">DATE/TIME</td>
+                    <td id="header">TOLL NAME</td>
+                    <td id="header">TARIFF</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="pop-up" id="add-toll-popup">
+        <span id="close-icon" onclick="closeTollPopUp()">&times;</span>
+        <h2>Add new toll</h2>
+        <form action="POST">
+            <label for="toll-name" id="toll-name-label">Toll Name<span>&#x2a</span></label><br>
+            <input type="text" id="toll-name-input" placeholder="Enter toll name" required><br>
+        
+            <div class="dropdown">
+                <label for="vehicle-fare-details" id="fare-detail-label">Vehicle fare details<span>&#x2a</span></label>
+                <br>
+                <select name="Select-vehicle-type1" id="vehicle-fare-details" required>
+                    <option value="common-name">Select vehicle type</option>
+                    <option value="car-jeep-van">Car/Jeep/Van</option>
+                    <option value="lcv">LCV</option>
+                    <option value="truck-bus">Truck/Bus</option>
+                    <option value="heavy-vehicle">Heavy vehicle</option>
+                </select>
+        
+                <label for="single-journey1"></label>
+                <input type="text" name="single-journey-1" id="single-journey" placeholder="Single journey" required>
+        
+                <label for="return-journey1"></label>
+                <input type="text" name="return-journey-1" id="return-journey" placeholder="Return journey" required>
+        
+                <br>
+                <select name="Select-vehicle-type2" id="vehicle-fare-details">
+                    <option value="common-name">Select vehicle type</option>
+                    <option value="car-jeep-van">Car/Jeep/Van</option>
+                    <option value="lcv">LCV</option>
+                    <option value="truck-bus">Truck/Bus</option>
+                    <option value="heavy-vehicle">Heavy vehicle</option>
+                </select>
+        
+                <label for="single-journey2"></label>
+                <input type="text" name="single-journey2" id="single-journey" placeholder="Single journey">
+        
+                <label for="return-journey2"></label>
+                <input type="text" name="return-journey2" id="return-journey" placeholder="Return journey">
+        
+                <br>
+                <select name="Select-vehicle-type3" id="vehicle-fare-details">
+                    <option value="common-name">Select vehicle type</option>
+                    <option value="car-jeep-van">Car/Jeep/Van</option>
+                    <option value="lcv">LCV</option>
+                    <option value="truck-bus">Truck/Bus</option>
+                    <option value="heavy-vehicle">Heavy vehicle</option>
+                </select>
+        
+                <label for="single-journey3"></label>
+                <input type="text" name="single-journey3" id="single-journey" placeholder="Single journey">
+        
+                <label for="return-journey3"></label>
+                <input type="text" name="return-journey3" id="return-journey" placeholder="Return journey">
+        
+                <br>
+                <select name="Select-vehicle-type4" id="vehicle-fare-details">
+                    <option value="common-name">Select vehicle type</option>
+                    <option value="car-jeep-van">Car/Jeep/Van</option>
+                    <option value="lcv">LCV</option>
+                    <option value="truck-bus">Truck/Bus</option>
+                    <option value="heavy-vehicle">Heavy vehicle</option>
+                </select>
+        
+                <label for="single-journey4"></label>
+                <input type="text" name="single-journey4" id="single-journey" placeholder="Single journey">
+        
+                <label for="return-journey4"></label>
+                <input type="text" name="return-journey4" id="return-journey" placeholder="Return journey">
+            </div>
+        </form>
+        
+        
+        <input type="button" name="add-details" value="Add details" id="add-button" onclick="closeTollPopUp()">
+    </div>
+
+    <div class="entry-pop-up" id="add-entry-popup">
+        <span id="close-icon" onclick="closeEntryPopUp()">&times;</span>
+        <h2>Add new entry</h2>
+    
+        <form class="entry-details">
+            <label for="toll-names" id="toll-name-label">Select toll name<span>&#x2a</span></label><br>
+            <select name="Select-toll-name" id="toll-names" required>
+                <option value="kappalur">Kappalur</option>
+                <option value="chengalpattu">Chengalpattu</option>
+                <option value="chennai">Chennai</option>
+            </select>
+            <br>
+            <label for="vehicle-types" id="vehicle-types-label">Select vehicle type<span>&#x2a</span></label>
+            <br>
+            <select name="Select-vehicle-types" id="vehicle-types" required>
+                <option value="car-jeep-van">Car/Jeep/Van</option>
+                <option value="lcv">LCV</option>
+                <option value="truck-bus">Truck/Bus</option>
+                <option value="heavy-vehicle">Heavy vehicle</option>
+            </select>
+            <br>
+            <label for="vehicle-number">Vehicle Number<span>&#x2a</span></label><br>
+            <input type="text" name="vehicle-number" id="vehicle-number" placeholder="Enter your login id" required>
+            <br>
+            <label for="tariff">Tariff<span>&#x2a</span></label><br>
+            <input type="text" name="tariff" id="tariff" placeholder="Tariff amount" readonly>
+    
+            <input type="button" name="add-entry" value="Add entry" id="add-entry" onclick="addVehicleEntry()">
+        </form>
+    
+    </div>
+
+
+    <script>
+        
+        $(document).ready(function(){
+            productsAdd();
+        })
+
+        function productsAdd(){
+            if($(".vehicle-list tbody").length == 0) {
+                $("vehicle-list-body").append("<tbody></tbody>");
+            }
+            $(".vehicle-list tbody").append(
+                "<tr class='table-content'>" +
+                    "<td>Car/Jeep/Van</td>" +
+                    "<td>TN24AQ4644</td>" +
+                    "<td>09/09/2022, 16:43:48</td>" +
+                    "<td>Chengalpattu</td>" +
+                    "<td>60</td>" +
+                "</tr>"
+            )
+
+            $(".vehicle-list tbody").append(
+                "<tr class='table-content'>"+
+                    "<td>Car/Jeep/Van</td>"+
+                    "<td>TN19QQ1234</td>"+
+                    "<td>09/09/2022, 15:30:34</td>"+
+                    "<td>Kappalur</td>"+
+                    "<td>75</td>"+
+                "</tr>"
+            )
+
+            $(".vehicle-list tbody").append(
+                "<tr class='table-content'>"+
+                    "<td>Car/Jeep/Van</td>"+
+                    "<td>TN24AA1234</td>"+
+                    "<td>09/09/2022, 12:12:34</td>"+
+                    "<td>Kappalur</td>"+
+                    "<td>400</td>"+
+                "</tr>"
+            )
+        }
+
+
+        const today = new Date();
+            const yyyy = today.getFullYear();
+            let mm = today.getMonth() + 1; // Months start at 0!
+            let dd = today.getDate();
+
+            if (dd < 10) dd = '0' + dd;
+            if (mm < 10) mm = '0' + mm;
+
+            const formattedToday = dd + '/' + mm + '/' + yyyy;
+
+        function addVehicleEntry(){
+            if($(".vehicle-list tbody").length == 0) {
+                $("vehicle-list-body").append("<tbody></tbody>");
+            }
+            $(".vehicle-list tbody").append(
+                "<tr class='table-content'>" +
+                    "<td>" + $("#vehicle-types").val()+"</td>" +
+                    "<td>" + $("#vehicle-number").val()+"</td>" +
+                    //"<td>" + $("#datetime").val()+"</td>" +
+                    "<td>" + formattedToday +"</td>" +
+                    "<td>" + $("#toll-names").val()+"</td>" +
+                    "<td>" + $("#tariff").val()+"</td>" +
+                "</tr>"
+            )
+        }
+
+
+    let addTollPopUp = document.getElementById("add-toll-popup");
+        function openAddTollPopUp(){
+            addTollPopUp.classList.add("open-add-toll-popup")
+        }
+
+        function closeTollPopUp(){
+            addTollPopUp.classList.remove("open-add-toll-popup")
+        }
+
+        let addEntryPopUp = document.getElementById("add-entry-popup");
+        function openAddEntryPopUp(){
+            addEntryPopUp.classList.add("open-add-toll-popup")
+        }
+
+        function closeEntryPopUp(){
+            addEntryPopUp.classList.remove("open-add-toll-popup")
+        }
+
+        let toShowDropdown = document.getElementById("filter-option-dropdown");
+        function showDropdown(){
+            toShowDropdown.classList.toggle("filter-dropdown-show");
+        }
+    </script>
+</body>
+</html>

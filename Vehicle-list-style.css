@@ -1,0 +1,264 @@
+* {
+    background-color: #ffffff;
+}
+
+.header {
+    font-size: 18px;
+    font-weight: 10px;
+    border-color: #e8e8e8;
+}
+
+.content {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+#left {
+    display: flex;
+    align-items: baseline;
+}
+
+#left p {
+    padding-right: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#left i {
+    padding-right: 10px;
+    font-size: 26px;
+}
+
+#filter {
+    cursor: pointer;
+}
+
+.search-bar {
+    border: 1px solid #e8e8e8;
+    border-width: medium;
+    padding: 0 0 0 10px;
+    border-radius: 10px;
+    border-width: 1px;
+    width: 380px;
+}
+
+#search-button {
+    width: 90%;
+    border: 0;
+    height: 40px;
+}
+
+#search-button:focus {
+    outline: none;
+}
+
+input[type="button"] {
+    padding: 10px;
+    background-color: blue;
+    color: #ffffff;
+    border: 0;
+    border-radius: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+#right :hover {
+    cursor: pointer;
+}
+
+.vehicle-list {
+    margin-top: 10px;
+}
+
+table {
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#header {
+    background-color: #e8e8e8;
+    border-color: #e8e8e8;
+    font-weight: 1px;
+    padding: 5px 0 5px 15px;
+    font-size: 16px;
+}
+
+tr:first-child {
+    margin-right: 100px;
+}
+
+td {
+    border-bottom: 1px solid #e8e8e8;
+    padding: 15px 0 15px 15px;
+    text-align: left;
+    width: 500px;
+}
+
+td+td {
+    width: 200px;
+}
+
+.table-content td {
+    font-weight: bold;
+}
+
+.filter-dropdown-content{
+    display: none;
+    position: absolute;
+    margin-top: 4%;
+    margin-left: 14%;
+    box-shadow: 0 0 5px black;
+}
+
+.filter-dropdown-content a{
+    float: none;
+    display: block;
+    padding: 6px;
+    text-decoration: none;
+    color: black;
+}
+
+.filter-dropdown-show{
+    display: block;
+}
+
+
+.entry-pop-up {
+    width: 35%;
+    height: 80%;
+    background: white;
+    box-shadow: 0 0 5px black;
+    border-radius: 3px;
+    padding: 30px;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+}
+
+.pop-up {
+    width: 60%;
+    height: 80%;
+    background: white;
+    box-shadow: 0 0 5px black;
+    border-radius: 3px;
+    padding: 30px;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+}
+
+#close-icon {
+    float: right;
+    font-size: 30px;
+}
+
+#close-icon:hover {
+    cursor: pointer;
+}
+
+.pop-up h2,
+.entry-pop-up h2 {
+    text-align: center;
+    font-size: 22px;
+    margin: 0 0 30px o;
+}
+
+#toll-name-label {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 5px 0 30px 0;
+}
+
+.entry-details label {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+#toll-names,
+#vehicle-types {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border-color: #e8e8e8;
+    border-radius: 3px;
+}
+
+#vehicle-number,
+#tariff {
+    width: 85%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border-color: #e8e8e8;
+    border-radius: 3px;
+}
+
+#toll-name-input {
+    padding: 10px;
+    font-size: 16px;
+    border-color: #e8e8e8;
+    border-radius: 3px;
+    width: 94%;
+    margin: 10px 0 20px 0;
+}
+
+#fare-detail-label {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#toll-name-label span,
+#fare-detail-label span {
+    color: red;
+}
+
+.entry-details {
+    margin-left: 20px;
+}
+
+.entry-details span {
+    color: red;
+}
+
+#vehicle-fare-details,
+#single-journey,
+#return-journey {
+    padding: 10px;
+    margin: 10px 20px 10px 0;
+    width: 232px;
+    font-size: 16px;
+    border-color: #e8e8e8;
+    border-radius: 3px;
+}
+
+#add-button {
+    width: 97%;
+    margin: 20px 0;
+}
+
+#add-entry {
+    width: 97%;
+    margin: 30px 0;
+}
+
+#add-button,
+#add-entry:hover {
+    cursor: pointer;
+}
+
+.open-add-toll-popup {
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+}
